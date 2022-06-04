@@ -6,6 +6,13 @@ function Header({ title }) {
 
 function HomePage() {
     const skills = ["HTML", "CSS", "JavaScript"]
+    
+    const [likes, setLikes] = React.useState(0)
+
+    function handleClick(){
+        setLikes(likes + 1)
+    }
+
     return (
         <div>
             <Header title="Aprende React" />
@@ -20,11 +27,10 @@ function HomePage() {
                 {skills.map((sk) =>
                     <li key={sk}>{sk}</li>
                 )}
-            </ul>            
+            </ul>         
+            <button onClick={handleClick}>Me Gusta ({likes})</button>
         </div>
     )
-
-
 }
 
 ReactDOM.render(<HomePage />, app)
